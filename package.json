@@ -1,0 +1,39 @@
+{
+  "name": "express-starter",
+  "version": "0.0.1",
+  "description": "Starter project for an ES6 RESTful Express with API, Waterline inside",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:appmazing/express-starter.git"
+  },
+  "author": "appmazing.io <contact@appmazing.pl>",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "config": "^1.20.1",
+    "cookie-parser": "1.4.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "express-cache-response-directive": "1.0.0",
+    "express-ping": "1.1.0",
+    "joi": "^8.0.5",
+    "jsonwebtoken": "^5.7.0",
+    "require-dir": "0.3.0",
+    "resource-router-middleware": "^0.5.1",
+    "sails-memory": "0.10.6",
+    "sails-mongo": "^0.12.0",
+    "waterline": "^0.12.1",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "1.9.2",
+    "waterline-fixtures": "0.2.3"
+  }
+}
