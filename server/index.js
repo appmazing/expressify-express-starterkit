@@ -30,8 +30,8 @@ const app = express();
 /**
  * Expose `config` & `logger` instances to application
  */
- app.config = config;
- app.log = logger();
+app.config = config;
+app.log = logger();
 
 /**
  * Models have to be initialized before routing is invoked

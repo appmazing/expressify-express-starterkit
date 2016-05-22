@@ -33,6 +33,7 @@
     "winston": "^2.2.0"
   },
   "devDependencies": {
+    "eslint": "2.10.2",
     "nodemon": "1.9.2",
     "waterline-fixtures": "0.2.3"
   }

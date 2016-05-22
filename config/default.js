@@ -7,6 +7,7 @@ const rootDirectory = process.cwd();
 
 export default {
     port: process.env.PORT || 5001,
+    staticDir: path.join(rootDirectory, 'static'),
 
     /* default superadmin credentials */
     superadmin: {
@@ -85,6 +86,7 @@ export default {
      * @example { name: 'module', priority: 1 } will run `module` middleware ASAP
      */
     middleware: [
+        { name: 'static', priority: 8 },
         { name: 'cookie-parser', priority: 8 },
         { name: 'body-parser-json', priority: 8 },
         { name: 'body-parser-urlencoded', priority: 8 },
