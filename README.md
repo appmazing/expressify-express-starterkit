@@ -12,7 +12,7 @@ If you decided to use it anyway and found an issue, please report it on GH.
  - Babel ES6/7 support built in
  - built in node-config
  - automatically load routes
- - config based execution of methods after application bootstrap
+ - config based execution of methods during application bootstrap
  - config based middleware loading with priority feature
  - Waterline models
  - Joi schema validation
