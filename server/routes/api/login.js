@@ -23,7 +23,7 @@ export const factory = (app) => {
 
             let { username, password } = req.body;
 
-            models.user.findOne({email: username}, (err, user) => {
+            models.user.findOne({ email: username }, (err, user) => {
 				if (err) {
 					return res.send(err);
 				}
@@ -33,7 +33,7 @@ export const factory = (app) => {
 				}
 
 				let token = jwt.sign(user, config.get('auth.jwt.secret'), {
-					expiresIn: config.get('auth.jwt.expiresIn')
+					expiresIn: config.get('auth.jwt.expiresIn'),
 				});
 
                 res.cookie('Authorization', token, app.config.get('auth.cookie'));
@@ -58,4 +58,4 @@ export const factory = (app) => {
         });
 
 	return router;
-}
+};

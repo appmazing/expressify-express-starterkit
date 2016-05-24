@@ -1,6 +1,6 @@
 export default (app) => {
     return new Promise((resolve, reject) => {
-         app.models.user.findOne({ roles: ['superadmin']}, (err, user) => {
+         app.models.user.findOne({ roles: ['superadmin'] }, (err, user) => {
              if (err) {
                  app.log('info', err.toString());
 
@@ -17,15 +17,14 @@ export default (app) => {
 
                              /* stop execution anyway */
                              reject(err);
-                         }
-                         else {
+                         } else {
                              app.log(
                                  'info',
                                  'Created superadmin account %s',
                                  JSON.stringify(user, null, 4)
                              );
 
-                             resolve();     
+                             resolve();
                          }
                  });
              } else {

@@ -1,13 +1,14 @@
+/* eslint camelcase: 0, no-process-env: 0 */
+
 import os from 'os';
-import path from 'path';
 
 import packageInfo from '../../../package.json';
 import express from 'express';
 
 const router = express.Router();
 
-export const factory = (app) => {
-    router.get('/', function (req, res, next) {
+export const factory = () => {
+    router.get('/', function (req, res) {
         /**
          * Inspired by:
          * https://github.com/palmerabollo/express-ping
@@ -23,14 +24,14 @@ export const factory = (app) => {
             title: process.title,
             argv: process.argv,
             versions: process.versions,
-            node_env: process.env.NODE_ENV
+            node_env: process.env.NODE_ENV,
           },
 
           resources: {
             memory: process.memoryUsage(),
             loadavg: os.loadavg(),
             cpu: os.cpus(),
-            nics: os.networkInterfaces()
+            nics: os.networkInterfaces(),
           },
 
           system: {
@@ -41,10 +42,10 @@ export const factory = (app) => {
             hostname: os.hostname(),
             uptime: os.uptime(),
             cores: os.cpus().length,
-            memory: os.totalmem()
-          }
+            memory: os.totalmem(),
+            },
         });
     });
 
     return router;
-}
+};

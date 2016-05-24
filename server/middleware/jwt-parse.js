@@ -20,7 +20,7 @@ export const callback = (app) => {
             error: { name: '', message: '' },
 
             /* payload stored by valid token */
-            payload: null
+            payload: null,
         };
 
         if (req.cookies && req.cookies.Authorization) {
@@ -47,4 +47,4 @@ export const callback = (app) => {
             next();
         }
     });
-}
+};

@@ -3,7 +3,6 @@ export const authenticate = (credentials, strategy) => {
         case 'password':
             let { user, password } = credentials;
             return ((typeof user !== 'undefined') && (password === user.password));
-            break;
         default:
     }
 };

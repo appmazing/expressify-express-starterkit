@@ -8,4 +8,4 @@ export const callback = (app) => {
      * Enable simple cookie parsing
      */
     app.use(path, cookieParser());
-}
+};

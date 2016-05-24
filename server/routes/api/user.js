@@ -7,7 +7,7 @@ export const name = '[user|users]+';
 
 const router = express.Router();
 
-export const factory = function(app) {
+export const factory = function (app) {
 
     const { models } = app;
 
@@ -60,10 +60,10 @@ export const factory = function(app) {
         .get((req, res) => {
             models.user.findById(req.params.id, (err, user) => {
                 if (err) {
-                    return res.json(err)
+                    return res.json(err);
                 }
 
-                res.json(user)
+                res.json(user);
             });
         })
 
@@ -75,7 +75,7 @@ export const factory = function(app) {
          */
         .put((req, res) => {
             models.user
-                .update({id: req.params.id}, req.body)
+                .update({ id: req.params.id }, req.body)
                 .exec((err, user) => {
                     if (err) {
                         return res
@@ -83,7 +83,7 @@ export const factory = function(app) {
                             .json(err);
                     }
                     res.json(user[0]);
-                })
+                });
         })
 
         /**
@@ -94,14 +94,14 @@ export const factory = function(app) {
          */
         .delete((req, res) => {
             models.user
-                .destroy({id: req.params.id})
+                .destroy({ id: req.params.id })
                 .exec(err => {
                     if (err) {
                         return res.json(err);
                     }
                     res.json();
-                })
+                });
         });
 
     return router;
-}
+};

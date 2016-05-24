@@ -11,7 +11,7 @@ const identity = 'user';
  */
 const onModelInput = (values, next) => {
     next();
-}
+};
 
 /**
  * Despite it's called `onValidationEnd` it's in fact validate input with Joi
@@ -24,7 +24,7 @@ const onValidationEnd = (values, next) => {
 
         next();
     });
-}
+};
 
 /**
  * Joi schema for our model advanced validation
@@ -33,20 +33,19 @@ const joiSchema = Joi.object().keys({
     name: Joi.string().min(5).required(),
     password: Joi.string().required(),
     email: Joi.string().email(),
-    roles: Joi.array().min(1).items(Joi.string().valid('admin', 'user'))
+    roles: Joi.array().min(1).items(Joi.string().valid('admin', 'user')),
 });
 
 /* Waterline attributes extended with methods to overwrite */
 const attributes = Object.assign(toWaterline(joiSchema), {
     toJSON: function () {
+        var model = this.toObject();
 
-      var model = this.toObject();
+        /* safety */
+        delete model.password;
 
-      /* safety */
-      delete model.password;
-
-      return model;
-    }
+        return model;
+    },
 });
 
 export default Waterline.Collection.extend({
@@ -56,5 +55,5 @@ export default Waterline.Collection.extend({
 
     beforeDestroy: onModelInput,
     beforeValidate: onModelInput,
-    afterValidate: onValidationEnd
+    afterValidate: onValidationEnd,
 });
