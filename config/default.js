@@ -36,6 +36,7 @@ export default {
             path: '/',
         }
     },
+
     waterline: {
         adapters: {
             mongo,
@@ -51,19 +52,19 @@ export default {
     },
 
     cors: {
-		origin: true,
+        origin: true,
         credentials: true,
         allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept']
-	},
+    },
 
     bodyParser: {
-		json: {
+        json: {
             limit : '100kb'
         },
         urlencoded: {
-    		extended: false
-    	}
-	},
+            extended: false
+        }
+    },
 
     /**
      * Things to be executed during application bootstrapping.
@@ -95,4 +96,4 @@ export default {
         { name: 'cache-response', priority: 50 },
         { name: 'cors', priority: 50 }
     ]
-}
+};

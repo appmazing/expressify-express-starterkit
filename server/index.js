@@ -23,6 +23,11 @@ import middleware from './middleware';
 import bootstrap from './bootstrap';
 
 /**
+ * Websocket events and messages
+ */
+import websocket from './websocket'; 
+
+/**
  * Initialize Express.js server instance
  */
 const app = express();
@@ -60,8 +65,11 @@ models.waterline.initialize(config.get('waterline'), (err, models) => {
      */
     bootstrap(app)
         .then(() => {
-             app.listen(config.get('port'));
+             const server = app.listen(config.get('port'));
              app.log('info', 'Listening at port %s', config.get('port'));
+
+             /* Initialize websocket server */
+             websocket(server);
         })
         .catch((e) => {
             /* @TODO: think about better error output, red color perhaps? */
