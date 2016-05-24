@@ -6,7 +6,7 @@ export default () => {
     return Object.keys(fixtures).map((name) => {
         return {
             model: name,
-            items: fixtures[name]
+            items: fixtures[name],
         };
     });
 };

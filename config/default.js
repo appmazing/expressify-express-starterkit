@@ -1,3 +1,5 @@
+/* eslint no-process-env: 0 */
+
 import mongo from 'sails-mongo';
 import memory from 'sails-memory';
 
@@ -14,56 +16,56 @@ export default {
         name: 'superadmin',
         email: 'admin@foo.bar',
         password: 'test',
-        roles: ['admin']
+        roles: ['admin'],
     },
 
     fixtures: {
         path: path.join(rootDirectory, 'fix'),
 
         /* if true, fixtures bootstrap module will wipe collection first */
-        reset: true
+        reset: true,
     },
 
     auth: {
         jwt: {
             expiresIn: (20 * 60),
-            secret: 'B8FAA2E0A1606C16B66CDCB1EFA0E389773F47859BECD24181ECB32EE49A9203'
+            secret: 'B8FAA2E0A1606C16B66CDCB1EFA0E389773F47859BECD24181ECB32EE49A9203',
         },
         cookie: {
             name: 'Authorization',
             httpOnly: true,
             domain: '.mydomain.com',
             path: '/',
-        }
+        },
     },
 
     waterline: {
         adapters: {
             mongo,
-            memory
+            memory,
         },
         connections: {
             mongo: {
                 adapter: 'mongo',
                 port: 27017,
-                database: 'production-db'
-            }
-        }
+                database: 'production-db',
+            },
+        },
     },
 
     cors: {
         origin: true,
         credentials: true,
-        allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept']
+        allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
     },
 
     bodyParser: {
         json: {
-            limit : '100kb'
+            limit : '100kb',
         },
         urlencoded: {
-            extended: false
-        }
+            extended: false,
+        },
     },
 
     /**
@@ -76,7 +78,7 @@ export default {
      */
     bootstrap: [
         { name: 'superadmin', priority: 10 },
-        { name: 'fixtures', priority: 1 }
+        { name: 'fixtures', priority: 1 },
     ],
 
     /**
@@ -94,6 +96,6 @@ export default {
         { name: 'jwt-parse', priority: 10 },
         { name: 'auth', priority: 20 },
         { name: 'cache-response', priority: 50 },
-        { name: 'cors', priority: 50 }
-    ]
+        { name: 'cors', priority: 50 },
+    ],
 };

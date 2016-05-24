@@ -34,7 +34,7 @@ export default (app) => {
             .then(() => {
                 waterlineFixtures.init({
                       collections: app.models,
-                      fixtures: fixtures
+                      fixtures: fixtures,
                   }, (error) => {
                       if(error) {
                           reject(error);
@@ -45,6 +45,6 @@ export default (app) => {
             })
             .catch((err) => {
                 reject(err);
-            })
+            });
     });
 };

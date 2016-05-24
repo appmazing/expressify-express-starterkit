@@ -19,6 +19,6 @@ export default function (server) {
             handlers(socket);
         });
     });
-    
+
     return socketServer;
 }

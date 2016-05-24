@@ -1,7 +1,7 @@
 /* require whole directory except current file */
 import requireDir from 'require-dir';
 
-const middleware = requireDir()
+const middleware = requireDir();
 
 export default function (app) {
 
@@ -14,7 +14,7 @@ export default function (app) {
 
     /* Throw exception if not */
     if(missing.length) {
-        let error = ('Missing middleware modules: ' + missing.join(', '))
+        let error = ('Missing middleware modules: ' + missing.join(', '));
         throw error;
     }
 
@@ -35,5 +35,5 @@ export default function (app) {
                 'Registred [ middleware ] { name: %s, path: %s, priority: %s }',
                 name, path, priority
             );
-    })
+    });
 }

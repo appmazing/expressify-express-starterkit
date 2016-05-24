@@ -2,13 +2,13 @@ export default {
     waterline: {
         connections: {
             mongo: {
-                database: 'development-db'
-            }
-        }
+                database: 'development-db',
+            },
+        },
     },
     auth: {
         cookie: {
-            domain: 'localhost'
-        }
-    }
+            domain: 'localhost',
+        },
+    },
 };

@@ -9,5 +9,5 @@ Object.keys(models).forEach((name) => {
 });
 
 export default {
-    waterline
-}
+    waterline,
+};

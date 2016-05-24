@@ -25,7 +25,7 @@ import bootstrap from './bootstrap';
 /**
  * Websocket events and messages
  */
-import websocket from './websocket'; 
+import websocket from './websocket';
 
 /**
  * Initialize Express.js server instance
