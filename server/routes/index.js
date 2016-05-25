@@ -28,4 +28,6 @@ export default function (app) {
             app.log('info', '[ load:route ]: { path: %s }', path);
         });
     });
+
+    return app;
 }

@@ -36,4 +36,6 @@ export default function (app) {
                 name, path, priority
             );
     });
+
+    return app;
 }
