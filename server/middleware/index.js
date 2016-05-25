@@ -32,8 +32,10 @@ export default function (app) {
 
             app.log(
                 'info',
-                'Registred [ middleware ] { name: %s, path: %s, priority: %s }',
+                '[ load:middleware ] { name: %s, path: %s, priority: %s }',
                 name, path, priority
             );
     });
+
+    return app;
 }

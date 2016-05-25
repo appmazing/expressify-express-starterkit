@@ -25,7 +25,9 @@ export default function (app) {
              **/
             app.use(path, factory(app));
 
-            app.log('info', 'Registred [ route ]: { path: %s }', path);
+            app.log('info', '[ load:route ]: { path: %s }', path);
         });
     });
+
+    return app;
 }
