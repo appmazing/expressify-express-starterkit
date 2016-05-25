@@ -2,7 +2,7 @@ import getFixtures from '../fixtures';
 import waterlineFixtures from 'waterline-fixtures';
 
 export default (app) => {
-    let config = app.config.get('fixtures');
+    let config = app.locals.get('fixtures');
     let fixtures = getFixtures();
 
     let deferred;

@@ -36,14 +36,14 @@ export const factory = (app) => {
 					expiresIn: config.get('auth.jwt.expiresIn'),
 				});
 
-                res.cookie('Authorization', token, app.config.get('auth.cookie'));
+                res.cookie('Authorization', token, app.locals.get('auth.cookie'));
 
 				return res.json(user);
 			});
 		})
 
         .delete((req, res) => {
-            let config = app.config.get('auth.cookie');
+            let config = app.locals.get('auth.cookie');
 
             res.clearCookie(config.name);
             res.cookie(config.name, '-', config);

@@ -10,7 +10,7 @@ export default (app) => {
 
              if(typeof user === 'undefined') {
                  app.models.user
-                     .create(app.config.superadmin)
+                     .create(app.locals.superadmin)
                      .exec((err, user) => {
                          if (err) {
                              app.log('info', err.toString());

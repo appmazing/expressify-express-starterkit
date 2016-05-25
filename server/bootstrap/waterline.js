@@ -8,7 +8,7 @@ export default (app) => {
         /**
          * Models have to be initialized before routing is invoked
          */
-        models.waterline.initialize(app.config.get('waterline'), (error, models) => {
+        models.waterline.initialize(app.locals.get('waterline'), (error, models) => {
 
             if(error) {
                 reject(error);

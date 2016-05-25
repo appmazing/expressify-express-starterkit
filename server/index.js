@@ -24,7 +24,7 @@ const app = express();
 /**
  * Expose `config` & `logger` instances to application
  */
-app.config = config;
+app.locals = config;
 app.log = logger();
 
 /* @TODO: think about better error output, red color perhaps? */
