@@ -39,7 +39,7 @@ export default (app) => {
                       if(error) {
                           reject(error);
                       } else {
-                          resolve();
+                          resolve(app);
                       }
                   });
             })

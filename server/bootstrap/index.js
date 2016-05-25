@@ -1,22 +1,41 @@
 import requireDir from 'require-dir';
 
-export default (app) => {
+const bootstrap = (app, modules) => {
+    return new Promise((resolve, reject) => {
+        if(modules.length)  {
+            let moduleDefinition = modules.shift();
 
-    const modules = requireDir();
-    const config = app.config.get('bootstrap');
-
-    /* get promises for all features which will run during app bootstrap  */
-    let promises = config
-        .sort((a, b) => a.priority - b.priority)
-        .map((module) => {
             app.log(
                 'info',
                 '[ bootstrap ] { name: %s, priority: %s }',
-                module.name, module.priority
+                moduleDefinition.name, moduleDefinition.priority
             );
 
-            return modules[module.name](app);
+            moduleDefinition.callback(app)
+                .then(() => {
+                    bootstrap(app, modules);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        } else {
+            resolve();
+        }
+    });
+}
+
+export default (app) => {
+
+    const modules = requireDir();
+    const modulesEnabled = app.config.get('bootstrap');
+
+    /* get promises for all features which will run during app bootstrap  */
+    let modulesSorted = modulesEnabled
+        .sort((a, b) => a.priority - b.priority)
+        .map((moduleDefinition) => {
+            moduleDefinition.callback = modules[moduleDefinition.name];
+            return moduleDefinition;
         });
 
-    return Promise.all(promises);
+    return bootstrap(app, modulesSorted);
 };

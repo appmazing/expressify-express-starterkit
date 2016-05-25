@@ -77,8 +77,22 @@ export default {
      * @example { name: 'module', priority: 1 } will run `module` immediately
      */
     bootstrap: [
-        { name: 'superadmin', priority: 10 },
-        { name: 'fixtures', priority: 1 },
+        /* run before server start */
+        { name: 'waterline', priority: 10 },
+
+        /* initialze routes & middleware for oure instance of Express server */
+        { name: 'middleware', priority: 20 },
+        { name: 'routes', priority: 20 },
+
+        /* less important, still start before server initialisation */
+        { name: 'superadmin', priority: 30 },
+        { name: 'fixtures', priority: 30 },
+
+        /* initialise server (start listening on given port etc.) */
+        { name: 'server', priority: 40 },
+
+        /* run after server will start */
+        { name: 'websockets', priority: 50 },
     ],
 
     /**

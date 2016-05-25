@@ -20,7 +20,7 @@ export default (app) => {
                          } else {
                              app.log(
                                  'info',
-                                 'Created superadmin account %s',
+                                 '[ message ] Created superadmin account %s',
                                  JSON.stringify(user, null, 4)
                              );
 
@@ -30,7 +30,7 @@ export default (app) => {
              } else {
                  app.log(
                      'info',
-                     'Existing superadmin account %s',
+                     '[ message ] Existing superadmin account %s',
                      JSON.stringify(user, null, 4)
                  );
 
@@ -38,7 +38,7 @@ export default (app) => {
                   * We are not returning user to keep consistency
                   * with case when we are not running `superadmin` feature
                   **/
-                 resolve();
+                 resolve(app);
              }
          });
     });
