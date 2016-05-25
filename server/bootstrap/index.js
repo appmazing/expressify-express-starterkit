@@ -27,7 +27,7 @@ const bootstrap = (app, modules) => {
 export default (app) => {
 
     const modules = requireDir();
-    const modulesEnabled = app.config.get('bootstrap');
+    const modulesEnabled = app.locals.get('bootstrap');
 
     /* get promises for all features which will run during app bootstrap  */
     let modulesSorted = modulesEnabled

@@ -27,7 +27,7 @@ export const callback = (app) => {
 
             let token = req.cookies.Authorization;
 
-            jwt.verify(token, app.config.get('auth.jwt.secret'), (err, payload) => {
+            jwt.verify(token, app.locals.get('auth.jwt.secret'), (err, payload) => {
                 if(err) {
                     req.jwt.error = err;
                 } else {

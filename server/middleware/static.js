@@ -6,5 +6,5 @@ export const callback = (app) => {
     /**
      * Enable static files handling
      */
-    app.use(path, express.static(app.config.get('staticDir')));
+    app.use(path, express.static(app.locals.get('staticDir')));
 };

@@ -5,7 +5,7 @@ const middleware = requireDir();
 
 export default function (app) {
 
-    let enabled = app.config.get('middleware');
+    let enabled = app.locals.get('middleware');
 
     /* Check if all middleware listed in config are present */
     let missing = enabled.filter((config) => {
