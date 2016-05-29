@@ -1,3 +1,5 @@
+![expressify](https://raw.githubusercontent.com/appmazing/expressify-express-starterkit/readme_banner/expressify.png)
+
 Express & ES6 starter
 ==================================
 
