@@ -73,7 +73,6 @@ export default {
      *  - name of module,
      *  - priority (higher better)
      *
-     *
      * @example { name: 'module', priority: 1 } will run `module` immediately
      */
     bootstrap: [

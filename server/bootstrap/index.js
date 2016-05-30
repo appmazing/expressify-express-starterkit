@@ -15,7 +15,7 @@ const init = () => {
         state = {
             resolve,
             reject,
-        }
+        };
     });
 
     /* expose promise to attach `then` callback on it */
@@ -40,7 +40,7 @@ const bootstrap = (app, modules) => {
      * If there is no modules to run,
      * it means that we went through bootstrap process
      */
-    if(!modules.length)  {
+    if(!modules.length) {
         state.resolve(app);
     }
 
@@ -58,7 +58,7 @@ const bootstrap = (app, modules) => {
 
         /* stop whole process with `reject` in case of any fail */
         .catch((error) => { state.reject(error); });
-}
+};
 
 export default (app) => {
 
@@ -78,7 +78,7 @@ export default (app) => {
 
         /* attach module as callback to module definition (name, priority) */
         .forEach((moduleDefinition) => {
-            moduleDefinition.callback = modules[moduleDefinition.name];
+            moduleDefinition.callback = modules[moduleDefinition.name].default;
         });
 
     state.deferred.then(() => {

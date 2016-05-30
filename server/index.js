@@ -2,7 +2,6 @@
  * Core dependencies
  */
 import express from 'express';
-import config from 'config';
 
 /**
  * As we are customising functionallity of `winston` logger
@@ -11,10 +10,11 @@ import config from 'config';
 import logger from './utils/logger';
 
 /**
- * Config driven bootstrapping part of apps,
+ * Config driven bootstrapping part of apps,``
  * ie. fixtures, server initialisation, websockets
  */
 import bootstrap from './bootstrap';
+import config from './utils/config';
 
 /**
  * Initialize Express.js server instance
@@ -24,7 +24,7 @@ const app = express();
 /**
  * Expose `config` & `logger` instances to application
  */
-app.locals = config;
+app.locals = config();
 app.log = logger();
 
 /* @TODO: think about better error output, red color perhaps? */
