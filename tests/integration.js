@@ -1,4 +1,4 @@
 /* register babel for ES6 */
-require('babel/register');
+require('babel-core/register');
 
 require('./integration/index');
