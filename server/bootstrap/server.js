@@ -10,4 +10,4 @@ export default (app) => {
     app.log('info', '[ message ] Listening at port %s', port);
 
     return Promise.resolve(app);
-}
+};

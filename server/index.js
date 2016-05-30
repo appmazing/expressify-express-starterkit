@@ -28,4 +28,6 @@ app.locals = config;
 app.log = logger();
 
 /* @TODO: think about better error output, red color perhaps? */
-export default bootstrap(app).catch((e) => { app.log('info', ('FATAL, ' + e)); });
+export default bootstrap(app).catch((error) => {
+    app.log('info', ('FATAL, ' + error));
+});

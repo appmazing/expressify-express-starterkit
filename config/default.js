@@ -112,4 +112,11 @@ export default {
         { name: 'cache-response', priority: 50 },
         { name: 'cors', priority: 50 },
     ],
+
+    tests: {
+        integration: {
+            path: path.join('tests', 'integration', '**', '*.js'),
+            ignore: '**/index.js',
+        },
+    },
 };
