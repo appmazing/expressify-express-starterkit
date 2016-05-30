@@ -6,7 +6,8 @@
   "scripts": {
     "nodemon": "./node_modules/nodemon/bin/nodemon.js",
     "start": "npm run nodemon app.js",
-    "test:integration": "npm run nodemon tests/integration.js"
+    "test:integration": "npm run nodemon tests/integration.js",
+    "test": "npm run test:integration"
   },
   "repository": {
     "type": "git",
