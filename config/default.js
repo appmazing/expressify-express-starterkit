@@ -8,7 +8,7 @@ import path from 'path';
 const rootDirectory = process.cwd();
 
 export default {
-    port: process.env.PORT || 5001,
+    port: 5001,
     staticDir: path.join(rootDirectory, 'static'),
 
     /* default superadmin credentials */
