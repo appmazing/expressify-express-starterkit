@@ -1,17 +1,12 @@
 import express from 'express';
 
-export const api = 'v1';
-
-/* optionally handle plurar endings in REST routing */
-export const name = '[user|users]+';
-
 const router = express.Router();
 
-export const factory = function (app) {
+export default (app) => {
 
     const { models } = app;
 
-    router.route('/')
+    router.route('/[user|users]+')
 
         /**
          * Get all users

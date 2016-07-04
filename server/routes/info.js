@@ -2,13 +2,13 @@
 
 import os from 'os';
 
-import packageInfo from '../../../package.json';
+import packageInfo from '../../package.json';
 import express from 'express';
 
 const router = express.Router();
 
 export const factory = () => {
-    router.get('/', function (req, res) {
+    router.get('/info', function (req, res) {
         /**
          * Inspired by:
          * https://github.com/palmerabollo/express-ping

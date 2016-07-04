@@ -3,16 +3,13 @@ import jwt from 'jsonwebtoken';
 
 import { authenticate } from '../../utils/auth';
 
-export const api = 'v1';
-export const name = 'login';
-
 const router = express.Router();
 
-export const factory = (app) => {
+export default (app) => {
 
     const { models, config } = app;
 
-	router.route('/')
+	router.route('/login')
 
 		/**
 		 * @param  {Object} req
