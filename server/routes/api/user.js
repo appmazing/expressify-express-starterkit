@@ -38,9 +38,9 @@ export const factory = function (app) {
             models.user
                 .create(req.body)
                 .exec((err, user) => {
-                    let errors = err.originalError;
-
                     if (err) {
+                        let errors = err.originalError;
+
                         return res
                             .status(422)
                             .json(errors);
