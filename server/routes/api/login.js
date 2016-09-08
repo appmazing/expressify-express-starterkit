@@ -10,7 +10,7 @@ const router = express.Router();
 
 export const factory = (app) => {
 
-    const { models, config } = app;
+    const { models, locals: config } = app;
 
 	router.route('/')
 
